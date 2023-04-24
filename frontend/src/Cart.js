@@ -3,10 +3,11 @@ import styles from './Cart1.module.css';
 import Navigationbar from './Navigationbar';
 import Footer from './Footer';
 import { useHistory } from 'react-router-dom';
+const BASE_URL1=process.env.BASE_URL1 || 'http://localhost:2000/'
 function Cart(){
-//   const history = useHistory();
-//   let token = localStorage.getItem('token');
-//   console.log(token);
+// const history = useHistory();
+// let token = localStorage.getItem('token');
+// console.log(token);
 // if (token === null) {
 //  // console.log("jojkjhg00");
 //  history.push('/');
@@ -71,7 +72,8 @@ else{
      
         <div className={styles.cart_box} key={item.id}>
           <div className={styles.cart_img}>
-            <img src={`http://localhost:2000/${item.image}`} alt="" />
+          <img src={`${BASE_URL1}${item.image}`} alt="" />
+
             <p>{item.name}</p>
           </div>
 

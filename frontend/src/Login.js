@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
 var checker=0;
 var checker1=1;
+const BASE_URL1 = process.env.BASE_URL1 || 'http://localhost:2000';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -52,7 +53,7 @@ export default class Login extends React.Component {
     else{
     // const pwd = bcrypt.hashSync(this.state.password, salt);
 
-    axios.post('http://localhost:2000/login', {
+    axios.post(`${BASE_URL1}/login`, {
       username: this.state.username,
       password: this.state.password,
     }).then((res) => {

@@ -17,6 +17,7 @@ import Footer from './Footer'
 import Navigationbar from './Navigationbar';
 
 const axios = require('axios');
+const BASE_URL1 = process.env.BASE_URL1 || 'http://localhost:2000';
 
 export default class Dashboard extends Component {
     constructor() {
@@ -60,7 +61,7 @@ export default class Dashboard extends Component {
     if (this.state.search) {
       data = `${data}&search=${this.state.search}`;
     }
-    axios.get(`http://localhost:2000/get-product${data}`, {
+    axios.get(`${BASE_URL1}/get-product/${data}`, {
       headers: {
         'token': this.state.token
       }
@@ -77,7 +78,7 @@ export default class Dashboard extends Component {
   }  
 
   deleteProduct = (id) => {
-    axios.post('http://localhost:2000/delete-product', {
+    axios.post(`${BASE_URL1}/delete-product`, {
       id: id
     }, {
       headers: {
@@ -136,7 +137,7 @@ export default class Dashboard extends Component {
     file.append('discount', this.state.discount);
     file.append('price', this.state.price);
 
-    axios.post('http://localhost:2000/add-product', file, {
+    axios.post(`${BASE_URL1}/add-product`, file, {
       headers: {
         'content-type': 'multipart/form-data',
         'token': this.state.token
@@ -174,7 +175,7 @@ export default class Dashboard extends Component {
     file.append('discount', this.state.discount);
     file.append('price', this.state.price);
 
-    axios.post('http://localhost:2000/update-product', file, {
+    axios.post(`${BASE_URL1}/update-product`, file, {
       headers: {
         'content-type': 'multipart/form-data',
         'token': this.state.token
@@ -443,7 +444,8 @@ export default class Dashboard extends Component {
                   <TableCell align="center" component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell align="center"><img src={`http://localhost:2000/${row.image}`} width="70" height="70" /></TableCell>
+                  <TableCell align="center"><img src={`${BASE_URL1}/${row.image}`} width="70" height="70" /></TableCell>
+
                   <TableCell align="center">{row.desc}</TableCell>
                   <TableCell align="center">{row.price}</TableCell>
                   <TableCell align="center">{row.discount}</TableCell>

@@ -3,6 +3,7 @@ import swal from 'sweetalert';
 import styles from './Register.module.css';
 import { Button, TextField, Link } from '@material-ui/core';
 const axios = require('axios');
+const BASE_URL1 = process.env.BASE_URL1 || 'http://localhost:2000';
 
 var checker_name=0;
 var checker_email=0;
@@ -75,7 +76,7 @@ export default class Register extends React.Component {
   }
   register = () => {
    if(checker_conf_password==1 && checker_email==1 && checker_name==1 && checker_password==1){
-    axios.post('http://localhost:2000/register', {
+    axios.post(`${BASE_URL1}/register`, {
       username: this.state.username,
       email:this.state.email,
       password: this.state.password,

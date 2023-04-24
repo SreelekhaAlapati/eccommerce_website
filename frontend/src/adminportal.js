@@ -2,6 +2,7 @@ import React, { Component, useState,useEffect} from 'react';
 import styles from './Cart.module.css'
 import Axios from 'axios';
 import AdminNavigation from './AdminNavigation';
+const BASE_URL1=process.env.BASE_URL1 || 'http://localhost:2000/'
 function AdminPortal(){
    
   const [userData,setuserData]=useState([]);
@@ -10,7 +11,6 @@ function AdminPortal(){
   const updateData=()=>{
     setuserData(userData.filter(item => item.is_delete !== false));
   }
-
 
   const getData=()=>{
     fetch('http://localhost:3100/prod'
@@ -53,7 +53,9 @@ function AdminPortal(){
           
               <tr>
             <br></br>
-             <td align="center"><img src={`http://localhost:2000/${item.image}`} width="70" height="70" /></td>
+           
+             <td align="center"><img src={(`${BASE_URL1}/${item.image}`)} width="70" height="70" /></td>
+
             <td>{item.name}</td>
             <td>{item.price}</td>
             <td>{item.desc}</td>

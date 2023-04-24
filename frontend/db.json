@@ -12,6 +12,19 @@
       "user_id": "641dce8e371d2c2e8479a79f",
       "__v": 0,
       "id": 1
+    },
+    {
+      "_id": "642073cb6c02fd4b70db63ac",
+      "is_delete": false,
+      "date": "2023-03-26T16:33:15.249Z",
+      "name": "paintings",
+      "desc": "paint",
+      "price": 12345,
+      "image": "file-1679848395232.jpg",
+      "discount": 12,
+      "user_id": "641dce8e371d2c2e8479a79f",
+      "__v": 0,
+      "id": 2
     }
   ]
 }

@@ -45,7 +45,7 @@ export default class RegisterAdmin extends React.Component {
       </div>
       <div className={styles.contactForm}>
         <h3 style={{fontFamily:'cursive'}}>Hi,Welcome!</h3>
-        <h1>Registration Form</h1>
+        <h1>Registaration Form</h1>
         <div>
           <TextField
             label = "UserName:"

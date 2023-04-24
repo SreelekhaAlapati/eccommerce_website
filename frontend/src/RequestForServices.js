@@ -1,6 +1,5 @@
 import { pink } from "@material-ui/core/colors";
 import React from "react";
-import { notInitialized } from "react-redux/es/utils/useSyncExternalStore";
 import { Field, reduxForm } from "redux-form";
 import Navigationbar from "./Navigationbar";
 

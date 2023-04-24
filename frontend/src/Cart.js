@@ -4,12 +4,20 @@ import Navigationbar from './Navigationbar';
 import Footer from './Footer';
 import { useHistory } from 'react-router-dom';
 function Cart(){
-  
-useEffect(()=>{
-  getData()
-  updateAmount()
-},[])
-
+//   const history = useHistory();
+//   let token = localStorage.getItem('token');
+//   console.log(token);
+// if (token === null) {
+//  // console.log("jojkjhg00");
+//  history.push('/');
+//  return null;
+// }
+// if (token === 'null') {
+//  // console.log("jojkjhg00");
+//  history.push('/');
+//  return null;
+// }
+// else{
   var amount=0;
   const [cartData,setcartData]=useState([]);
   const getData=()=>{
@@ -30,57 +38,17 @@ useEffect(()=>{
         setcartData(myJson);
       });
   }
-  const removeOne=(id,price)=>{
-    amount=amount-price;
-
-     fetch(`http://localhost:3006/data/${id}`, {
- method: 'DELETE'
-})
-.then(response => {
- if (!response.ok) {
-   throw new Error('Network response was not ok');
- }
- console.log('Record deleted successfully');
- window.location.reload();
-
-//  alert('Payment successful!');
-})
-.catch(error => {
- console.error('Error deleting record:', error);
-});
-
-  }
-  
-
-  const updateCart=()=>{
-    amount=0;
-     cartData.map((data)=>{
-      var recordId=data.id
-      fetch(`http://localhost:3006/data/${recordId}`, {
-  method: 'DELETE'
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  console.log('Record deleted successfully');
-  window.location.reload();
-
-  alert('Payment successful!');
-})
-.catch(error => {
-  console.error('Error deleting record:', error);
-});
-
-     })
-  }
   const updateAmount=()=>{
     amount=0;
      cartData.map((data)=>{
       amount+=data.price
      })
+    
   }
-
+  useEffect(()=>{
+    getData()
+    updateAmount()
+  },[])
     const history = useHistory();
   let token = localStorage.getItem('token');
   console.log(token);
@@ -111,9 +79,6 @@ else{
           <p style={{color:"white"}}>{amount=amount+item.price}</p>
             <p>{item.price}rs</p>
           </div>
-          <div>
-            <button onClick={() => removeOne(item.id, item.price)}>Delete</button>
-          </div>
         </div>
       ))}
       <br></br>
@@ -136,7 +101,7 @@ else{
             </table>
           </div>
           <div className={styles.totalprice1}>
-          <button style={{backgroundColor:"#7DE5ED",borderColor:"#7DE5ED"}} className="btn btn-primary" onClick={updateCart} >Pay Now</button>
+          <button style={{backgroundColor:"#7DE5ED",borderColor:"#7DE5ED"}} className="btn btn-primary" onClick={()=>alert("payent done :)")}>Pay Now</button>
           </div>  
        </div>
         <Footer />    

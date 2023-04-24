@@ -140,7 +140,7 @@ app.get("/datacheck", (req, res) => {
     console.log(resourceId)
     // const resourceId='641aff4e67596aca4cd9ea36';
     db.collection('messages').findOne({_id: ObjectId(resourceId)}, function(err, result) {
-      if (err) {++
+      if (err) {
         res.status(500).send(err);
       } else if (result) {
         res.status(200).json(result);
@@ -151,6 +151,12 @@ app.get("/datacheck", (req, res) => {
       }
     });
   });
+
+
+
+
+
+  
 
 
 /**

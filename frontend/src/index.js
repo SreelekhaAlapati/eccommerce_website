@@ -2,7 +2,7 @@
 import morgan from 'morgan';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Switch, Redirect, Route } from 'react-router';
+import { Switch, Redirect, Route } from 'react-router-dom';
 import { BrowserRouter, Link } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
@@ -40,10 +40,6 @@ const path = require('path');
 //   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 // });
 
-// const port = process.env.PORT || 5000;
-// app.listen(port, () => {
-//   console.log(`Server is listening on port ${port}`);
-// });
 
 ReactDOM.render(
     <Provider store={store}>

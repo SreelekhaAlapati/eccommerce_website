@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var cors = require('cors');
 var multer = require('multer'),
-bodyParser = require('body-parser'),
-path = require('path');
+  bodyParser = require('body-parser'),
+  path = require('path');
 var mongoose = require("mongoose");
 var swaggerJSDoc = require('swagger-jsdoc');
 var swaggerUi = require('swagger-ui-express');
@@ -75,6 +75,7 @@ var upload = multer({
     },
     filename: function (req, file, callback) { callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname)); }
   }),
+
   fileFilter: function (req, file, callback) {
     var ext = path.extname(file.originalname)
     if (ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg') {
@@ -83,12 +84,10 @@ var upload = multer({
     callback(null, true)
   }
 });
-
-
 app.use(cors());
 app.use(express.static('uploads'));
 app.use(bodyParser.json());       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // here it doesn't support URL-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: false
 }));
 // app = express();
@@ -192,8 +191,8 @@ app.post("/register", async (req, res) => {
         if (data.length == 0) {
 
           let hash = await bcrypt.hash(req.body.password, saltRounds);
-          // console.log("here1 ",req.body.password)
-          // console.log("here2 ",hash)
+          console.log("here1 ",req.body.password)
+          console.log("here2 ",hash)
           // console.log.println()
           let User = new user({
             username: req.body.username,
@@ -257,7 +256,8 @@ function checkUserAndGenerateToken(data, req, res) {
 /* Api to add Product */
 app.post("/add-product", upload.any(), (req, res) => {
   try {
-    if (req.files && req.body && req.body.name && req.body.desc && req.body.price && req.body.discount) {
+    if (req.files && req.body && req.body.name && req.body.desc && req.body.price &&
+      req.body.discount) {
       let new_product = new product();
       new_product.name = req.body.name;
       new_product.desc = req.body.desc;
@@ -299,11 +299,13 @@ app.post("/update-product", upload.any(), (req, res) => {
     if (req.files && req.body && req.body.name && req.body.desc && req.body.price && req.body.id && req.body.discount) {
 
       product.findById(req.body.id, (err, new_product) => {
+
         // if file already exist than remove it
         if (req.files && req.files[0] && req.files[0].filename && new_product.image) {
           var path = `./uploads/${new_product.image}`;
           fs.unlinkSync(path);
         }
+
         if (req.files && req.files[0] && req.files[0].filename) {
           new_product.image = req.files[0].filename;
         }
@@ -405,6 +407,10 @@ app.post("/delete-product", (req, res) => {
     });
   }
 });
+
+
+
+
 
 
 

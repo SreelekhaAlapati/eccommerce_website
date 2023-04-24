@@ -36,7 +36,10 @@ export default class Register extends React.Component {
   }
   onChange1 = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+
+
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     if ( re.test(e.target.value) ) {
        
     }
@@ -111,7 +114,7 @@ export default class Register extends React.Component {
             
       </div>
       <div className={styles.contactForm}>
-        <h1>Registration Form</h1>
+        <h1>Registaration Form</h1>
         <div>
           <TextField
             label = "UserName:"

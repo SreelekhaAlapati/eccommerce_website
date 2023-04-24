@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  backend1:
+    build: ./backend
+    ports:
+      - "2000:2000"
+  backend2:
+    build: ./crud
+    ports:
+      - "3100:3100"
+  backend3:
+    build: ./crud-service
+    ports:
+      - "8080:8080"
+  frontend:
+    build: ./frontend
+    ports:
+      - "3006:3006"
+      - "3000:3000"

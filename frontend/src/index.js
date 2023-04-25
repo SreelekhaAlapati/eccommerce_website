@@ -29,11 +29,7 @@ import store from "./Store";
 import RequestForServices from "./RequestForServices";
 import FinalRedux from './FinalRedux'
 const path = require('path');
-
-
-
 const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
-
 // Serve static assets (including your React app)
 // app.use(express.static('public'));
 
@@ -42,32 +38,36 @@ const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e
 //   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 // });
 
+// fetch(`${baseUrl}/register`)
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.error(error));
+
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route exact path='/' component={Login} />
-                <Route exact path='/register' component={Register} />
-                <Route path='/dashboard' component={Dashboard} />
-                <Route path='/home' component={Home}/>
-                <Route path='/forcheck' component={Forcheck}/>
-                <Route path='/artworks' component={Artworks} />
-                <Route path='/arts' component={Arts} />
-                <Route path='/contactus' component={ContactUs} />
-                <Route path='/cart' component={Header}/>
-                <Route path='/myorders' component={MyOrders}/>
-                <Route path='/help' component={Help} />       
-                <Route path='/Profile' component={Profile} />
-                <Route path='/FAQS' component={FAQ} />
-                <Route path='/admin' component={Admin} />
-                <Route path='/adminregister' component={RegisterAdmin} />
-                <Route path='/adminportal' component={AdminPortal} />
-                <Route path='/adminmain' component={AdminCards} />
-                <Route path='/adminusers' component={AdminUsers} />
-                <Route path='/adminmessages' component={AdminMessages} />
-                <Route path='/requestforservices' component={RequestForServices} />
-                <Route path='/finalredux' component={FinalRedux} />
-                {/* <Route component={NotFound}/> */}
+                <Route exact path={`${baseUrl}/`} component={Login} />
+                <Route exact path={`${baseUrl}/register`} component={Register} />
+                <Route path={`${baseUrl}/dashboard`} component={Dashboard} />
+                <Route path={`${baseUrl}/home`} component={Home}/>
+                <Route path={`${baseUrl}/forcheck`} component={Forcheck}/>
+                <Route path={`${baseUrl}/artworks`} component={Artworks} />
+                <Route path={`${baseUrl}/arts`} component={Arts} />
+                <Route path={`${baseUrl}/contactus`} component={ContactUs} />
+                <Route path={`${baseUrl}/cart`} component={Header}/>
+                <Route path={`${baseUrl}/myorders`} component={MyOrders}/>
+                <Route path={`${baseUrl}/help`} component={Help} />       
+                <Route path={`${baseUrl}/Profile`} component={Profile} />
+                <Route path={`${baseUrl}/FAQS`} component={FAQ} />
+                <Route path={`${baseUrl}/admin`} component={Admin} />
+                <Route path={`${baseUrl}/adminregister`} component={RegisterAdmin} />
+                <Route path={`${baseUrl}/adminportal`} component={AdminPortal} />
+                <Route path={`${baseUrl}/adminmain`} component={AdminCards} />
+                <Route path={`${baseUrl}/adminusers`} component={AdminUsers} />
+                <Route path={`${baseUrl}/adminmessages`} component={AdminMessages} />
+                <Route path={`${baseUrl}/requestforservices`} component={RequestForServices} />
+                <Route path={`${baseUrl}/finalredux`} component={FinalRedux} />
             </Switch>
         </BrowserRouter>,
     </Provider>,
@@ -76,3 +76,7 @@ ReactDOM.render(
 // import express from 'express';
 
 
+// fetch(`${baseUrl}/api/data`)
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.error(error));

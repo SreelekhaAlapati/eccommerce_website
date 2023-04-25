@@ -1,7 +1,6 @@
 FROM node:16
 WORKDIR /Forcart
 COPY package*.json .
-
 RUN npm install
 COPY . .
 EXPOSE 3006

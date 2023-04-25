@@ -11,14 +11,7 @@ var mongoose = require("mongoose");
 var swaggerJSDoc = require('swagger-jsdoc');
 var swaggerUi = require('swagger-ui-express');
 
-
-const app = express();
-
-app.use(cors({
-  origin: ['https://localhost:3000', 'https://172.31.9.75', 'https://unique-fudge-7e4243.netlify.app'],
-}));
-
-const BASE_URL1= process.env.BASE_URL1   || 'http://localhost:2000'
+const BASE_URL1= process.env.BASE_URL1   || 'https://backend-ecommerce-pap2.onrender.com'
 console.log(BASE_URL1)
 mongoose.connect('mongodb+srv://sreelekha:sreelekha1@cluster0.xhibn.mongodb.net/proj',{
   useNewUrlParser: true,

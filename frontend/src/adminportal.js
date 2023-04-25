@@ -3,7 +3,7 @@ import styles from './Cart.module.css'
 import Axios from 'axios';
 import AdminNavigation from './AdminNavigation';
 const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
-const BASE_URL2=process.env.BASE_URL2 || 'https://crud-ecommerce.onrender.com'
+const BASE_URL2=process.env.BASE_URL2 || 'http://localhost:3100/'
 function AdminPortal(){
    
   const [userData,setuserData]=useState([]);

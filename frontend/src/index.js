@@ -1,4 +1,4 @@
-import express from 'express';
+// import express from 'express';
 import morgan from 'morgan';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -29,26 +29,22 @@ import store from "./Store";
 import RequestForServices from "./RequestForServices";
 import FinalRedux from './FinalRedux'
 const path = require('path');
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app/' : 'http://localhost:3000';
+const baseUrl = 'https://unique-fudge-7e4243.netlify.app'
+// Serve static assets (including your React app)
+// app.use(express.static('public'));
 
-const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+// // All other GET requests not handled before will return the React app
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+// });
 
-app.use(morgan('dev'));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Server started at ${baseUrl}`);
-});
+console.log(baseUrl)
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-                <Route exact path={`${baseUrl}/`} component={Login} />
+            <Route exact path={`${baseUrl}/`} component={Login} />
                 <Route exact path={`${baseUrl}/register`} component={Register} />
                 <Route path={`${baseUrl}/dashboard`} component={Dashboard} />
                 <Route path={`${baseUrl}/home`} component={Home}/>
@@ -69,13 +65,12 @@ ReactDOM.render(
                 <Route path={`${baseUrl}/adminmessages`} component={AdminMessages} />
                 <Route path={`${baseUrl}/requestforservices`} component={RequestForServices} />
                 <Route path={`${baseUrl}/finalredux`} component={FinalRedux} />
+                {/* <Route component={NotFound}/> */}
             </Switch>
         </BrowserRouter>,
     </Provider>,
     document.getElementById('root')
 );
+// import express from 'express';
 
-// fetch(`${baseUrl}/api/data`)
-//   .then(response => response.json())
-//   .then(data => console.log(data))
-//   .catch(error => console.error(error));
+

@@ -4,6 +4,7 @@ import Navigationbar from './Navigationbar';
 import Footer from './Footer';
 import { useHistory } from 'react-router-dom';
 const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
+const BASE_URL4=process.env.BASE_URL4 || 'https://hello-ecommerce.onrender.com'
 function Cart(){
 // const history = useHistory();
 // let token = localStorage.getItem('token');
@@ -22,7 +23,7 @@ function Cart(){
   var amount=0;
   const [cartData,setcartData]=useState([]);
   const getData=()=>{
-    fetch('http://localhost:3006/data'
+    fetch(`${BASE_URL4}/data`
     ,{
       headers : { 
         'Content-Type': 'application/json',

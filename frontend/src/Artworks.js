@@ -6,10 +6,11 @@ import Navigationbar from './Navigationbar';
 import Axios from 'axios';
 const BASE_URL1 = process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 const BASE_URL3=process.env.BASE_URL3 || 'https://crud-service-ecommerce.onrender.com'
+const BASE_URL4 =process.env.BASE_URL4 || 'https://hello-ecommerce.onrender.com'
 const Artworks = () => {
     const [sure,setSure] =useState([]);
   const [userData,setuserData]=useState([]);
-   const url="http://localhost:3006/data";
+   const url=`${BASE_URL4}/data`;
     const [items, setItems] = useState(userData);
     //  const[cart,setCart] =useState();
     

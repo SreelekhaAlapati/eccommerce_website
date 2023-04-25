@@ -29,7 +29,7 @@ import store from "./Store";
 import RequestForServices from "./RequestForServices";
 import FinalRedux from './FinalRedux'
 const path = require('path');
-const baseUrl = 'https://unique-fudge-7e4243.netlify.app'
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
 // Serve static assets (including your React app)
 // app.use(express.static('public'));
 
@@ -44,7 +44,7 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Switch>
-            <Route exact path={`${baseUrl}/`} component={Login} />
+                <Route exact path={`${baseUrl}/`} component={Login} />
                 <Route exact path={`${baseUrl}/register`} component={Register} />
                 <Route path={`${baseUrl}/dashboard`} component={Dashboard} />
                 <Route path={`${baseUrl}/home`} component={Home}/>

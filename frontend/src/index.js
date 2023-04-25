@@ -29,8 +29,10 @@ import store from "./Store";
 import RequestForServices from "./RequestForServices";
 import FinalRedux from './FinalRedux'
 const path = require('path');
-// const app = express();
-// app.use(morgan('dev'));
+
+
+
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
 
 // Serve static assets (including your React app)
 // app.use(express.static('public'));
@@ -39,7 +41,6 @@ const path = require('path');
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 // });
-
 
 ReactDOM.render(
     <Provider store={store}>
@@ -73,3 +74,5 @@ ReactDOM.render(
     document.getElementById('root')
 );
 // import express from 'express';
+
+

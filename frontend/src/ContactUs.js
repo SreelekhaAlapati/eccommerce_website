@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './Contact.module.css'
 import Navigationbar from "./Navigationbar";
 import axios from "axios";
-
+const BASE_URL3=process.env.BASE_URL3 || 'https://crud-service-ecommerce.onrender.com'
 export default function Checkbo() {
   const history = useHistory();
 
@@ -31,8 +31,8 @@ export default function Checkbo() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:8080/datacheck', formData)
-      .then(response => console.log(response))
+    axios.post(`${BASE_URL3}/datacheck`, formData)
+    .then(response => console.log(response))
       .catch(error => console.log(error));
   };
 //   myClick: function (text) {

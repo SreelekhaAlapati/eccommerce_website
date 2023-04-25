@@ -7,9 +7,10 @@ import styles from './Contact.module.css'
 import AdminNavigation from './AdminNavigation';
 
 import Axios from "axios";
-
+const BASE_URL3=process.env.BASE_URL3 || 'https://crud-service-ecommerce.onrender.com'
 export default function AdminMessages(){
-  const url="http://localhost:8080/datacheck";
+  const url = `${BASE_URL3}datacheck`;
+
   const input  = useRef();
   const input1 = useRef();
   const input2 = useRef();
@@ -25,8 +26,7 @@ export default function AdminMessages(){
   }
   
   const handleDelete=async(id)=>{
-    await Axios
-    .delete('http://localhost:8080/datacheck/'+id)
+    await Axios.delete(`${BASE_URL3}/datacheck/${id}`)
     .then(res => alert("deleted success"));
     getData();
 };
@@ -35,8 +35,7 @@ export default function AdminMessages(){
  
 
 const getData=()=>{
-    fetch('http://localhost:8080/datacheck/'
-    ,{
+  fetch(`${BASE_URL3}/datacheck/`, {
       headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'

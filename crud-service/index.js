@@ -8,10 +8,12 @@ import Routes from './server/route.js';
 import Connection from './database/db.js';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+const BASE_URL3=process.env.BASE_URL3 || 'https://crud-service-ecommerce.onrender.com'
 // import Message from './controller/Messages';
 const app = express();
 app.use(morgan('combined'));
 dotenv.config();
+
 
 // const swaggerJSDoc=require('swagger-jsdoc')
 // const swaggerUi =require('swagger-ui-express')
@@ -40,7 +42,7 @@ const options={
     },
     servers:[
       {
-        url:'http://localhost:8080/'
+        url: BASE_URL3
       }
     ]
   },

@@ -3,7 +3,7 @@ import './AdminUsers.css'
 import AdminNavigation from './AdminNavigation';
 import Axios from 'axios';
 
-const BASE_URL2=process.env.BASE_URL2 || 'http://localhost:3100/'
+const BASE_URL2=process.env.BASE_URL2 || 'https://crud-ecommerce.onrender.com/'
 
 function AdminUsers(){
    

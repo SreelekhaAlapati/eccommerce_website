@@ -5,7 +5,7 @@ import Footer from './Footer'
 import Navigationbar from './Navigationbar';
 import Axios from 'axios';
 const BASE_URL1 = process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
-
+const BASE_URL3=process.env.BASE_URL3 || 'https://crud-service-ecommerce.onrender.com'
 const Artworks = () => {
     const [sure,setSure] =useState([]);
   const [userData,setuserData]=useState([]);
@@ -40,8 +40,7 @@ const Artworks = () => {
     }
 
     const getData=()=>{
-        fetch('http://localhost:8080/allproducts'
-        ,{
+        fetch(`${BASE_URL3}/allproducts`, {
           headers : { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -94,7 +93,7 @@ const Artworks = () => {
                                             <div className="row Item-inside">
                                                 {/* for images */}
                                                 <div className="col-12 col-md-12 col-lg-4 img-div">
-                                                    <img src={`{BASE_URL1}/${elem.image}`} alt={name} className="img-fluid"/>
+                                                    <img src={`${BASE_URL1}/${elem.image}`} alt={name} className="img-fluid"/>
                                                    
                                                 </div>
 

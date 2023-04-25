@@ -3,7 +3,7 @@ import styles from './Cart1.module.css';
 import Navigationbar from './Navigationbar';
 import Footer from './Footer';
 import { useHistory } from 'react-router-dom';
-const BASE_URL1=process.env.BASE_URL1 || 'http://localhost:2000/'
+const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 function Cart(){
 // const history = useHistory();
 // let token = localStorage.getItem('token');

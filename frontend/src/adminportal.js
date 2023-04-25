@@ -2,7 +2,8 @@ import React, { Component, useState,useEffect} from 'react';
 import styles from './Cart.module.css'
 import Axios from 'axios';
 import AdminNavigation from './AdminNavigation';
-const BASE_URL1=process.env.BASE_URL1 || 'http://localhost:2000/'
+const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
+const BASE_URL2=process.env.BASE_URL2 || 'https://crud-ecommerce.onrender.com'
 function AdminPortal(){
    
   const [userData,setuserData]=useState([]);
@@ -13,7 +14,7 @@ function AdminPortal(){
   }
 
   const getData=()=>{
-    fetch('http://localhost:3100/prod'
+    fetch(`${BASE_URL2}`
     ,{
       headers : { 
         'Content-Type': 'application/json',

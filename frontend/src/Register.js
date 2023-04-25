@@ -3,7 +3,7 @@ import swal from 'sweetalert';
 import styles from './Register.module.css';
 import { Button, TextField, Link } from '@material-ui/core';
 const axios = require('axios');
-const BASE_URL1 = process.env.BASE_URL1 || 'http://localhost:2000';
+const BASE_URL1 = process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 
 var checker_name=0;
 var checker_email=0;

@@ -2,6 +2,9 @@ import React, { Component, useState,useEffect} from 'react';
 import './AdminUsers.css'
 import AdminNavigation from './AdminNavigation';
 import Axios from 'axios';
+
+const BASE_URL2=process.env.BASE_URL2 || 'https://crud-ecommerce.onrender.com'
+
 function AdminUsers(){
    
   const [userData,setuserData]=useState([]);
@@ -9,14 +12,14 @@ function AdminUsers(){
   var dat=["",""]
   const handleDelete=async(username)=>{
     await Axios
-    .delete('http://localhost:3100'+username)
+    .delete(`${BASE_URL2}`+username)
     .then(res => alert("deleted success"));
     getData();
 };
 
 const getData=()=>{
 
-    fetch('http://localhost:3100/'
+    fetch(`${BASE_URL2}`
     ,{
       headers : { 
         'Content-Type': 'application/json',

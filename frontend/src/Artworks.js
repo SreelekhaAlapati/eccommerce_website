@@ -4,7 +4,7 @@ import "./Tab.css";
 import Footer from './Footer'
 import Navigationbar from './Navigationbar';
 import Axios from 'axios';
-const BASE_URL1 = process.env.BASE_URL1 || 'http://localhost:2000';
+const BASE_URL1 = process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 
 const Artworks = () => {
     const [sure,setSure] =useState([]);

@@ -1,4 +1,4 @@
-// import express from 'express';
+import express from 'express';
 import morgan from 'morgan';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -29,19 +29,20 @@ import store from "./Store";
 import RequestForServices from "./RequestForServices";
 import FinalRedux from './FinalRedux'
 const path = require('path');
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
-// Serve static assets (including your React app)
-// app.use(express.static('public'));
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app/' : 'http://localhost:3000';
 
-// // All other GET requests not handled before will return the React app
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-// });
+const app = express();
+app.use(express.static(path.join(__dirname, 'public')));
 
-// fetch(`${baseUrl}/register`)
-//   .then(response => response.json())
-//   .then(data => console.log(data))
-//   .catch(error => console.error(error));
+app.use(morgan('dev'));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server started at ${baseUrl}`);
+});
 
 ReactDOM.render(
     <Provider store={store}>
@@ -73,8 +74,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
-// import express from 'express';
-
 
 // fetch(`${baseUrl}/api/data`)
 //   .then(response => response.json())

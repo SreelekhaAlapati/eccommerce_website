@@ -1,9 +1,13 @@
+
 {
-  "scripts": {
-    "start": "json-server --watch db.json --port 3006",
-    "json-server": "./node_modules/.bin/json-server --watch db.json --port 3006"
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "My app using json-server",
+  "main": "index.js",
+  "dependencies": {
+    "json-server": "^0.16.3"
   },
-  "devDependencies": {
-    "json-server": "^0.17.3"
+  "scripts": {
+    "start": "json-server --watch db.json --port 3006"
   }
 }

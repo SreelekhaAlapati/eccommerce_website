@@ -32,16 +32,8 @@ const path = require('path');
 
 
 
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
-
-// Serve static assets (including your React app)
-// app.use(express.static('public'));
-
-// // All other GET requests not handled before will return the React app
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-// });
-
+//const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
+// console.log(baseUrl)
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

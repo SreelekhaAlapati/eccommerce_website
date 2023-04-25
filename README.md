@@ -12,3 +12,7 @@ Add all the required packages and run the code in 4 different terminals by using
 2. cd backend then npm start
 3. cd crud then npm start
 4. cd crud-service then npm start
+
+
+
+https://unique-fudge-7e4243.netlify.app/

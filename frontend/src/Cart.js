@@ -73,8 +73,7 @@ else{
      
         <div className={styles.cart_box} key={item.id}>
           <div className={styles.cart_img}>
-          <img src={`${BASE_URL1}${item.image}`} alt="" />
-
+          <img src={`${BASE_URL1}/${item.image}`} alt="" />
             <p>{item.name}</p>
           </div>
 

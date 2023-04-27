@@ -6,20 +6,11 @@ import { useHistory } from 'react-router-dom';
 const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 const BASE_URL4=process.env.BASE_URL4 || 'https://hello-ecommerce.onrender.com'
 function Cart(){
-// const history = useHistory();
-// let token = localStorage.getItem('token');
-// console.log(token);
-// if (token === null) {
-//  // console.log("jojkjhg00");
-//  history.push('/');
-//  return null;
-// }
-// if (token === 'null') {
-//  // console.log("jojkjhg00");
-//  history.push('/');
-//  return null;
-// }
-// else{
+useEffect(()=>{
+  getData()
+  updateAmount()
+},[])
+
   var amount=0;
   const [cartData,setcartData]=useState([]);
   const getData=()=>{
@@ -40,27 +31,45 @@ function Cart(){
         setcartData(myJson);
       });
   }
+  const updateCart=()=>{
+    amount=0;
+     cartData.map((data)=>{
+      var recordId=data.id
+      fetch(`${BASE_URL4}/data/${recordId}`, {
+  method: 'DELETE'
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  console.log('Record deleted successfully');
+  window.location.reload();
+
+  alert('Payment successful!');
+})
+.catch(error => {
+  console.error('Error deleting record:', error);
+});
+
+     })
+  }
   const updateAmount=()=>{
     amount=0;
      cartData.map((data)=>{
       amount+=data.price
      })
-    
   }
-  useEffect(()=>{
-    getData()
-    updateAmount()
-  },[])
+
     const history = useHistory();
   let token = localStorage.getItem('token');
   console.log(token);
 if (token === null) {
- // console.log("jojkjhg00");
+
  history.push('/');
  return null;
 }
 if (token === 'null') {
- // console.log("jojkjhg00");
+
  history.push('/');
  return null;
 }
@@ -103,7 +112,7 @@ else{
             </table>
           </div>
           <div className={styles.totalprice1}>
-          <button style={{backgroundColor:"#7DE5ED",borderColor:"#7DE5ED"}} className="btn btn-primary" onClick={()=>alert("payent done :)")}>Pay Now</button>
+          <button style={{backgroundColor:"#7DE5ED",borderColor:"#7DE5ED"}} className="btn btn-primary" onClick={updateCart}>Pay Now</button>
           </div>  
        </div>
         <Footer />    

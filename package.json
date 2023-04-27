@@ -16,6 +16,6 @@
       "mocha": "^10.2.0"
     },
     "scripts": {
-   
+      "test": "crud-service/test/test.js"
     }
   }

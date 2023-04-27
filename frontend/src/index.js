@@ -29,12 +29,6 @@ import store from "./Store";
 import RequestForServices from "./RequestForServices";
 import FinalRedux from './FinalRedux'
 const path = require('path');
-
-
-
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
-console.log(baseUrl)
-
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

@@ -1,3 +1,5 @@
+// import { Redis } from 'ioredis';
+const redis = require('./utils/redis.js')
 var morgan =require('morgan')
 var express = require("express");
 var app = express();

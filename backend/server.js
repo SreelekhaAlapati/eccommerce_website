@@ -11,7 +11,7 @@ var mongoose = require("mongoose");
 var swaggerJSDoc = require('swagger-jsdoc');
 var swaggerUi = require('swagger-ui-express');
 
-const BASE_URL1= process.env.BASE_URL1   || 'https://backend-ecommerce-pap2.onrender.com'
+const BASE_URL1= process.env.BASE_URL1
 console.log(BASE_URL1)
 mongoose.connect('mongodb+srv://sreelekha:sreelekha1@cluster0.xhibn.mongodb.net/proj',{
   useNewUrlParser: true,

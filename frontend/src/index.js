@@ -32,8 +32,8 @@ const path = require('path');
 
 
 
-//const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
-// console.log(baseUrl)
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://unique-fudge-7e4243.netlify.app' : 'http://localhost:3000';
+console.log(baseUrl)
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

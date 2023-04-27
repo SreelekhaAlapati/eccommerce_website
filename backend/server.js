@@ -407,12 +407,6 @@ app.post("/delete-product", (req, res) => {
   }
 });
 
-
-
-
-
-
-
 /*Api to get and search product with pagination and search by name*/
 app.get("/get-product", (req, res) => {
   try {

@@ -11,8 +11,8 @@ var mongoose = require("mongoose");
 var swaggerJSDoc = require('swagger-jsdoc');
 var swaggerUi = require('swagger-ui-express');
 
-const BASE_URL1= process.env.BASE_URL1   || 'http://localhost:2000'
-console.log(BASE_URL1)
+const BASE_URL1= process.env.BASE_URL1
+
 mongoose.connect('mongodb+srv://sreelekha:sreelekha1@cluster0.xhibn.mongodb.net/proj',{
   useNewUrlParser: true,
   useUnifiedTopology: true

@@ -7,7 +7,9 @@ const bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
 var checker=0;
 var checker1=1;
-const BASE_URL1 = process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
+// const isLocalhostActive = process.env.PORT === '2000';
+// const BASE_URL1 = isLocalhostActive ? 'http://localhost:2000' : 'https://backend-ecommerce-pap2.onrender.com';
+const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 
 export default class Login extends React.Component {
   constructor(props) {

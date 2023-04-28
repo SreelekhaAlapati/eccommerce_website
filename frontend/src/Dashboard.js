@@ -17,8 +17,10 @@ import Footer from './Footer'
 import Navigationbar from './Navigationbar';
 
 const axios = require('axios');
-const BASE_URL1 = process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
+// const isLocalhostActive = process.env.PORT === '2000';
+// const BASE_URL1 = isLocalhostActive ? 'http://localhost:2000' : 'https://backend-ecommerce-pap2.onrender.com';
 
+const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 export default class Dashboard extends Component {
     constructor() {
     super();

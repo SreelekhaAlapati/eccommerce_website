@@ -1,6 +1,9 @@
 import React, { Component, useState,useEffect} from 'react';
 import styles from './Cart.module.css'
 import Axios from 'axios';
+// import AdminNavigation from './AdminNavigation';
+// const isLocalhostActive = process.env.PORT === '2000';
+// const BASE_URL1 = isLocalhostActive ? 'http://localhost:2000' : 'https://backend-ecommerce-pap2.onrender.com';
 import AdminNavigation from './AdminNavigation';
 const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 const BASE_URL2=process.env.BASE_URL2 || 'https://crud-ecommerce.onrender.com'

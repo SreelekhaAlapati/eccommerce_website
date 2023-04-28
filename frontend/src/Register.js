@@ -3,12 +3,16 @@ import swal from 'sweetalert';
 import styles from './Register.module.css';
 import { Button, TextField, Link } from '@material-ui/core';
 const axios = require('axios');
-const BASE_URL1 = process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
+// const isLocalhostActive = process.env.PORT === '2000';
+// const isLocalhostActive = process.env.PORT == '2000';
+// const BASE_URL1 = isLocalhostActive ? 'http://localhost:2000' : 'https://backend-ecommerce-pap2.onrender.com';
 
-var checker_name=0;
-var checker_email=0;
-var checker_password=0;
-var checker_conf_password=0;
+const BASE_URL1 = process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com';
+
+var checker_name  = 0;
+var checker_email = 0;
+var checker_password = 0;
+var checker_conf_password = 0;
 export default class Register extends React.Component {
   constructor(props) {
     super(props);

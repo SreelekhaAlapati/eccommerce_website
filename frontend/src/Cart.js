@@ -132,6 +132,8 @@ import Navigationbar from './Navigationbar';
 import Footer from './Footer';
 import { useHistory } from 'react-router-dom';
 import StripeCheckout from "react-stripe-checkout"
+// const isLocalhostActive = process.env.PORT === '2000';
+// const BASE_URL1 = isLocalhostActive ? 'http://localhost:2000' : 'https://backend-ecommerce-pap2.onrender.com';
 const BASE_URL1=process.env.BASE_URL1 || 'https://backend-ecommerce-pap2.onrender.com'
 const BASE_URL4=process.env.BASE_URL4 || 'https://hello-ecommerce.onrender.com'
 const KEY = "pk_test_51MzzytSJBc3xJAizg7PIA6J8vmdMlu3bBYl4EIcMSCp0Swz0rYimlMO0oHuFKefo3aJsCyI3vHA4UO60D5yDZLlK00zHNoenRE";

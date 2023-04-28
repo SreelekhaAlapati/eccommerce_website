@@ -69,6 +69,18 @@ var fs = require('fs');
 var product = require("./model/product.js");
 var user = require("./model/user.js");
 
+// const Registers = mongoose.model('users', user);
+
+// user.index({ username: 1 }, (err) => {
+//   if (err) {
+//     console.error(err);
+//   } else {
+//     console.log('Index created on the username field');
+//   }
+// });
+
+
+
 var dir = './uploads';
 var upload = multer({
   storage: multer.diskStorage({
@@ -253,6 +265,49 @@ function checkUserAndGenerateToken(data, req, res) {
     }
   });
 }
+
+// const mongoose = require('mongoose');
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    index: true
+  },
+  password: String
+});
+
+userSchema.index({ username: 1 }, (err) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log('Index created on the username field');
+  }
+});
+
+const User = mongoose.model('User', userSchema);
+module.exports = User;
+
+app.get('/read', async (req, res) => {       
+  try {
+    const results = await User.find({}).sort({ username: 1 }).exec();
+    console.log(results)
+    res.send(results);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+
+// app.get('/read', async (req, res) => {       
+//   try {
+//     const results = await Registers.find({}).sort({ username: 1 }).exec();
+//     console.log(results)
+//     res.send(results);
+//   } catch (err) {
+//     res.status(500).send(err);
+//   }
+// });
+
 
 /* Api to add Product */
 app.post("/add-product", upload.any(), (req, res) => {
@@ -468,6 +523,6 @@ app.get("/get-product", (req, res) => {
 
 
 
-// app.listen(2000, () => {
-//   console.log("Server is Runing On port 2000");
-// });
+app.listen(2000, () => {
+  console.log("Server is Runing On port 2000");
+});

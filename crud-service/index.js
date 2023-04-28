@@ -92,6 +92,7 @@ app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
 
 
 
+
 app.get("/datacheck", (req, res) => {
      db.collection('messages').find({}).toArray(function(err, result) {
        if (err) throw err;
@@ -263,10 +264,4 @@ app.delete('/datacheck/:id', async (req, res) => {
 //     }
 //   });
 // });
-
-
-  
-  
-  
- 
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
